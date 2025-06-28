@@ -1,60 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- (1) root wrong name, should be <Hotels> -->
+<!-- (1) wrong root name, should be <Hotels> -->
 <Hotel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://zhengyue4499.github.io/Assignment4-XML-Hotels/Hotels.xsd">
 
-<!-- OK hotel for control -->
-			<Hotel Rating="4.2">
-				<Name>Westin Tempe</Name>
-				<Phone>480-968-8885</Phone>
-				<Phone>800-937-8461</Phone>
-				<!-- (4) missing closing tag on Address -->
-				<Address NearestAirport="Sky Harbor">
-					<Number>11</Number>
-					<Street>E. 7th St</Street>
-					<City>Tempe</City>
-					<State>AZ</State>
-					<Zip>85281
+	<!-- (2) missing required attribute NearestAirport -->
+	<Hotel Rating="4.1">
+		<Name>Embassy Suites</Name>
+		<Phone>480-897-7444</Phone>
+		<Address>
+			<Number>1001</Number>
+			<Street>S. McClintock Dr</Street>
+			<City>Tempe</City>
+			<State>AZ</State>
+			<Zip>85281</Zip>
+		</Address>
+	</Hotel>
 
+	<!-- (3) missing all Phone elements -->
+	<Hotel>
+		<Name>DoubleTree by Hilton</Name>
+		<Address NearestAirport="Sky Harbor">
+			<Number>2100</Number>
+			<Street>S. Priest Dr</Street>
+			<City>Tempe</City>
+			<State>AZ</State>
+			<Zip>85282</Zip>
+		</Address>
+	</Hotel>
+
+	<!-- (5) duplicate Name elements -->
+	<Hotel Rating="3.8">
+		<Name>Hyatt Place Tempe</Name>
+		<Name>Hyatt Duplicate</Name>
+		<Phone>480-894-1234</Phone>
+		<Address NearestAirport="Sky Harbor">
+			<Number>1325</Number>
+			<Street>S. Rural Rd</Street>
+			<City>Tempe</City>
+			<State>AZ</State>
+			<Zip>85281</Zip>
+		</Address>
+	</Hotel>
+
+	<!-- (4) unclosed <Zip> tag moved here to fire XmlException last -->
+	<Hotel Rating="4.2">
+		<Name>Westin Tempe</Name>
+		<Phone>480-968-8885</Phone>
+		<Phone>800-937-8461</Phone>
+		<Address NearestAirport="Sky Harbor">
+			<Number>11</Number>
+			<Street>E. 7th St</Street>
+			<City>Tempe</City>
+			<State>AZ</State>
+			<Zip>85281
   </Hotel>
 
-			<!-- (5) duplicate Name elements -->
-			<Hotel Rating="3.8">
-				<Name>Hyatt Place Tempe</Name>
-				<Name>Hyatt Duplicate</Name>
-				<Phone>480-894-1234</Phone>
-				<Address NearestAirport="Sky Harbor">
-					<Number>1325</Number>
-					<Street>S. Rural Rd</Street>
-					<City>Tempe</City>
-					<State>AZ</State>
-					<Zip>85281</Zip>
-				</Address>
-			</Hotel>
-
-			<!-- (3) missing all Phone elements -->
-			<Hotel>
-				<Name>DoubleTree by Hilton</Name>
-				<Address NearestAirport="Sky Harbor">
-					<Number>2100</Number>
-					<Street>S. Priest Dr</Street>
-					<City>Tempe</City>
-					<State>AZ</State>
-					<Zip>85282</Zip>
-				</Address>
-			</Hotel>
-
-			<!-- (2) missing required attribute NearestAirport -->
-			<Hotel Rating="4.1">
-				<Name>Embassy Suites</Name>
-				<Phone>480-897-7444</Phone>
-				<Address>
-					<Number>1001</Number>
-					<Street>S. McClintock Dr</Street>
-					<City>Tempe</City>
-					<State>AZ</State>
-					<Zip>85281</Zip>
-				</Address>
-			</Hotel>
-
-		</Hotel>
+</Hotel>
