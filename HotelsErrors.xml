@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- (1) wrong root name, should be <Hotels> -->
-<Hotel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:noNamespaceSchemaLocation="https://zhengyue4499.github.io/Assignment4-XML-Hotels/Hotels.xsd">
+<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://zhengyue4499.github.io/Assignment4-XML-Hotels/Hotels.xsd">
 
-	<!-- (2) missing required attribute NearestAirport -->
+	<!-- (1) missing required attribute NearestAirport -->
 	<Hotel Rating="4.1">
 		<Name>Embassy Suites</Name>
 		<Phone>480-897-7444</Phone>
@@ -16,7 +15,7 @@
 		</Address>
 	</Hotel>
 
-	<!-- (3) missing all Phone elements -->
+	<!-- (2) missing all Phone elements -->
 	<Hotel>
 		<Name>DoubleTree by Hilton</Name>
 		<Address NearestAirport="Sky Harbor">
@@ -28,7 +27,7 @@
 		</Address>
 	</Hotel>
 
-	<!-- (5) duplicate Name elements -->
+	<!-- (3) duplicate Name elements -->
 	<Hotel Rating="3.8">
 		<Name>Hyatt Place Tempe</Name>
 		<Name>Hyatt Duplicate</Name>
@@ -42,8 +41,8 @@
 		</Address>
 	</Hotel>
 
-	<!-- (4) unclosed <Zip> tag moved here to fire XmlException last -->
-	<Hotel Rating="4.2">
+	<!-- (4) illegal child element: <Rating> must be an attribute -->
+	<Hotel>
 		<Name>Westin Tempe</Name>
 		<Phone>480-968-8885</Phone>
 		<Phone>800-937-8461</Phone>
@@ -52,7 +51,22 @@
 			<Street>E. 7th St</Street>
 			<City>Tempe</City>
 			<State>AZ</State>
-			<Zip>85281
-  </Hotel>
+			<Zip>85281</Zip>
+		</Address>
+		<Rating>4.2</Rating>
+	</Hotel>
 
-</Hotel>
+	<!-- (5) unclosed <Zip> to trigger XmlException last -->
+	<Hotel Rating="4.0">
+		<Name>Mismatched Hotel</Name>
+		<Phone>123-456-7890</Phone>
+		<Address NearestAirport="Sky Harbor">
+			<Number>99</Number>
+			<Street>Nowhere Rd</Street>
+			<City>Null</City>
+			<State>ZZ</State>
+			<Zip>00000
+    </Address>
+	</Hotel>
+
+</Hotels>
