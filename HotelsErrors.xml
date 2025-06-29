@@ -1,131 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<Hotel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://zhengyue4499.github.io/Assignment4-XML-Hotels/Hotels.xsd">
 
-<!--
-  1) Root element renamed to <Hotel> instead of <Hotels>
--->
-<Hotel>
-
-	<!-- 1) A valid Hotel entry for context -->
-	<Hotel>
-		<Name>Hotel San Francisco</Name>
-		<Address>8 Mission Street</Address>
-		<City>San Francisco</City>
-		<State>CA</State>
-		<PostalCode>94105</PostalCode>
-		<Country>United States</Country>
-		<Phone>+1 415 278 3700</Phone>
-		<Phone>+1 833 602 7111</Phone>
-		<Phone>+1 415 200 4977</Phone>
-		<Fax>+1 415 764 4849</Fax>
+	<!-- 1) root mismatch -->
+	<Hotel Rating="4.2">
+		<Name>Westin Tempe</Name>
+		<Phone>480-968-8885</Phone>
+		<Phone>800-937-8461</Phone>
+		<Address NearestAirport="Sky Harbor">
+			<Number>11</Number>
+			<Street>E. 7th St</Street>
+			<City>Tempe</City>
+			<State>AZ</State>
+			<Zip>85281</Zip>
+		</Address>
 	</Hotel>
 
-	<!-- 2) Missing required element (<City>) -->
-	<Hotel>
-		<Name>Hotel Fiona</Name>
-		<Address>140 7th St.</Address>
-		<!-- <City> omitted here -->
-		<State>CA</State>
-		<PostalCode>94103</PostalCode>
-		<Country>United States</Country>
-		<Phone>+1 415 552 8600</Phone>
+	<!-- 2) missing NearestAirport -->
+	<Hotel Rating="3.8">
+		<Name>Hyatt Place Tempe/Phoenix</Name>
+		<Phone>480-894-1234</Phone>
+		<Address>
+			<Number>1325</Number>
+			<Street>S. Rural Rd</Street>
+			<City>Tempe</City>
+			<State>AZ</State>
+			<Zip>85281</Zip>
+		</Address>
 	</Hotel>
 
-	<!-- 3) Missing <Phone> entirely -->
+	<!-- 3) missing all Phone -->
 	<Hotel>
 		<Name>The Bartlett Hotel and Guesthouse</Name>
-		<Address>240 O’Farrell St</Address>
-		<City>San Francisco</City>
-		<State>CA</State>
-		<PostalCode>94102</PostalCode>
-		<Country>United States</Country>
-		<!-- no <Phone> element -->
-		<Fax>+1 415 941 6701</Fax>
+		<Address NearestAirport="Sky Harbor">
+			<Number>240</Number>
+			<Street>O’Farrell St</Street>
+			<City>Tempe</City>
+			<State>AZ</State>
+			<Zip>94102</Zip>
+		</Address>
 	</Hotel>
 
-	<!-- 4) <Address> tag not closed -->
+	<!-- 4) duplicate Name -->
 	<Hotel>
-		<Name>The Atrium Hotel SFO</Name>
-		<Address>
-			611 San Bruno Ave E
-			<!-- missing </Address> -->
-			<City>San Bruno</City>
-			<State>CA</State>
-			<PostalCode>94066</PostalCode>
-			<Country>United States</Country>
-			<Phone>+1 650 589 5089</Phone>
-			<Fax>+1 650 589 5089</Fax>
-		</Hotel>
-
-	<!-- 5) Two <Name> elements -->
-	<Hotel>
-		<Name>Crowne Plaza San Francisco Airport</Name>
+		<Name>DoubleTree by Hilton Phoenix Tempe</Name>
 		<Name>Duplicate Name</Name>
-		<Address>1177 Airport Boulevard</Address>
-		<City>Burlingame</City>
-		<State>CA</State>
-		<PostalCode>94010</PostalCode>
-		<Country>United States</Country>
-		<Phone>+1 650 342 9200</Phone>
-		<Phone>+1 877 424 6423</Phone>
-		<Phone>+1 800 300 8800</Phone>
+		<Phone>602-438-9444</Phone>
+		<Address NearestAirport="Sky Harbor">
+			<Number>2100</Number>
+			<Street>S. Priest Dr</Street>
+			<City>Tempe</City>
+			<State>AZ</State>
+			<Zip>85282</Zip>
+		</Address>
 	</Hotel>
 
-	<!-- The rest remain valid, to keep 10 total entries -->
-
-	<Hotel>
-		<Name>Parc 55 San Francisco - a Hilton Hotel</Name>
-		<Address>55 Cyril Magnin Street</Address>
-		<City>San Francisco</City>
-		<State>CA</State>
-		<PostalCode>94102</PostalCode>
-		<Country>United States</Country>
-		<Phone>+1 415 392 8000</Phone>
-	</Hotel>
-
-	<Hotel>
-		<Name>Four Seasons Hotel San Francisco</Name>
-		<Address>757 Market Street</Address>
-		<City>San Francisco</City>
-		<State>CA</State>
-		<PostalCode>94103</PostalCode>
-		<Country>United States</Country>
-		<Phone>+1 415 633 3636</Phone>
-		<Phone>+1 415 633 3000</Phone>
-		<Fax>+1 415 633 3001</Fax>
-	</Hotel>
-
-	<Hotel>
-		<Name>Fairmont San Francisco</Name>
-		<Address>950 Mason Street</Address>
-		<City>San Francisco</City>
-		<State>CA</State>
-		<PostalCode>94108</PostalCode>
-		<Country>United States</Country>
-		<Phone>+1 866 540 4491</Phone>
-		<Phone>+1 415 772 5000</Phone>
-		<Fax>+1 415 772 5013</Fax>
-	</Hotel>
-
-	<Hotel>
-		<Name>InterContinental Mark Hopkins San Francisco</Name>
-		<Address>999 California Street</Address>
-		<City>San Francisco</City>
-		<State>CA</State>
-		<PostalCode>94108</PostalCode>
-		<Country>United States</Country>
-		<Phone>+1 415 392 3434</Phone>
-		<Fax>+1 415 421 3302</Fax>
-	</Hotel>
-
-	<Hotel>
-		<Name>Hilton San Francisco Union Square</Name>
-		<Address>333 O'Farrell Street</Address>
-		<City>San Francisco</City>
-		<State>CA</State>
-		<PostalCode>94102</PostalCode>
-		<Country>United States</Country>
-		<Phone>+1 415 771 1400</Phone>
-		<Fax>+1 415 202 7798</Fax>
-	</Hotel>
+	<!-- 5) unclosed Address (must be last) -->
+	<Hotel Rating="4.1">
+		<Name>Embassy Suites by Hilton Phoenix Tempe</Name>
+		<Phone>480-897-7444</Phone>
+		<Phone>800-362-2779</Phone>
+		<Address NearestAirport="Sky Harbor">
+			<Number>1001</Number>
+			<Street>S. McClintock Dr</Street>
+			<City>Tempe</City>
+			<State>AZ</State>
+			<Zip>85281</Zip>
+			<!-- no </Address> on purpose -->
+		</Hotel>
 
 </Hotel>
