@@ -3,7 +3,7 @@
 <Hotel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://zhengyue4499.github.io/Assignment4-XML-Hotels/Hotels.xsd">
 
-	<!-- (control) first hotel unchanged -->
+	<!-- control: first hotel unchanged -->
 	<Hotel Rating="4.2">
 		<Name>Westin Tempe</Name>
 		<Phone>480-968-8885</Phone>
@@ -17,10 +17,10 @@
 		</Address>
 	</Hotel>
 
-	<!-- (3) A Phone element is missing on this hotel -->
+	<!-- (2) A Phone element is missing on this hotel -->
 	<Hotel Rating="3.8">
 		<Name>Hyatt Place Tempe/Phoenix</Name>
-		<!-- <Phone> removed on purpose -->
+		<!-- Phone elements removed on purpose -->
 		<Address NearestAirport="Sky Harbor">
 			<Number>1325</Number>
 			<Street>S. Rural Rd</Street>
@@ -30,7 +30,7 @@
 		</Address>
 	</Hotel>
 
-	<!-- (5) Two names are provided for one of the hotels -->
+	<!-- (3) Two names are provided for one of the hotels -->
 	<Hotel>
 		<Name>DoubleTree by Hilton Phoenix Tempe</Name>
 		<Name>Duplicate Name</Name>
@@ -44,7 +44,7 @@
 		</Address>
 	</Hotel>
 
-	<!-- (2) A required attribute (NearestAirport) is missing -->
+	<!-- (4) A required attribute (NearestAirport) is missing -->
 	<Hotel Rating="4.1">
 		<Name>Embassy Suites by Hilton Phoenix Tempe</Name>
 		<Phone>480-897-7444</Phone>
@@ -58,7 +58,7 @@
 		</Address>
 	</Hotel>
 
-	<!-- (4) An Address element has no closing tag -->
+	<!-- (5) An Address element has no closing tag (moved last) -->
 	<Hotel Rating="4.0">
 		<Name>Graduate Tempe</Name>
 		<Phone>480-966-5000</Phone>
@@ -70,78 +70,5 @@
 			<Zip>85281</Zip>
 			<!-- missing </Address> here on purpose -->
 		</Hotel>
-
-	<!-- the rest are unchanged copies from Hotels.xml -->
-	<Hotel>
-		<Name>Four Points by Sheraton Tempe</Name>
-		<Phone>480-967-3344</Phone>
-		<Address NearestAirport="Sky Harbor">
-			<Number>1340</Number>
-			<Street>S. Rural Rd</Street>
-			<City>Tempe</City>
-			<State>AZ</State>
-			<Zip>85281</Zip>
-		</Address>
-	</Hotel>
-
-	<Hotel Rating="3.7">
-		<Name>Residence Inn Tempe Downtown</Name>
-		<Phone>480-598-9400</Phone>
-		<Address NearestAirport="Sky Harbor">
-			<Number>650 S Mill Ave</Number>
-			<Street>S. Mill Ave</Street>
-			<City>Tempe</City>
-			<State>AZ</State>
-			<Zip>85281</Zip>
-		</Address>
-	</Hotel>
-
-	<Hotel>
-		<Name>Moxy Phoenix Tempe</Name>
-		<Phone>480-557-5678</Phone>
-		<Address NearestAirport="Sky Harbor">
-			<Number>973 S Mill Ave</Number>
-			<Street>S. Mill Ave</Street>
-			<City>Tempe</City>
-			<State>AZ</State>
-			<Zip>85281</Zip>
-		</Address>
-	</Hotel>
-
-	<Hotel Rating="4.3">
-		<Name>Homewood Suites by Hilton Tempe-Phoenix</Name>
-		<Phone>480-894-7575</Phone>
-		<Address NearestAirport="Sky Harbor">
-			<Number>1011</Number>
-			<Street>S. Rural Rd</Street>
-			<City>Tempe</City>
-			<State>AZ</State>
-			<Zip>85281</Zip>
-		</Address>
-	</Hotel>
-
-	<Hotel>
-		<Name>Hyatt House Phoenix/Tempe</Name>
-		<Phone>480-894-0100</Phone>
-		<Address NearestAirport="Sky Harbor">
-			<Number>1340</Number>
-			<Street>S. Rural Rd</Street>
-			<City>Tempe</City>
-			<State>AZ</State>
-			<Zip>85281</Zip>
-		</Address>
-	</Hotel>
-
-	<Hotel Rating="4.5">
-		<Name>Arizona Biltmore, A Waldorf Astoria Resort</Name>
-		<Phone>602-955-6600</Phone>
-		<Address NearestAirport="Sky Harbor">
-			<Number>2400</Number>
-			<Street>E. Missouri Ave</Street>
-			<City>Phoenix</City>
-			<State>AZ</State>
-			<Zip>85016</Zip>
-		</Address>
-	</Hotel>
 
 </Hotel>

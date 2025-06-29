@@ -3,28 +3,36 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Schema;
 using Newtonsoft.Json;
-using JsonFmt = Newtonsoft.Json.Formatting;
+using System.IO;
+
+/**
+ * This template file is created for ASU CSE445 Distributed SW Dev Assignment 4.
+ * Please do not modify or delete any existing class/variable/method names. However, you can add more variables and functions.
+ * Uploading this file directly will not pass the autograder's compilation check, resulting in a grade of 0.
+ **/
+
 
 namespace ConsoleApp1
 {
     public class Program
     {
-        // ← make sure there are no leading or trailing spaces in these URLs:
         public static string xmlURL = "https://zhengyue4499.github.io/Assignment4-XML-Hotels/Hotels.xml";
         public static string xmlErrorURL = "https://zhengyue4499.github.io/Assignment4-XML-Hotels/HotelsErrors.xml";
         public static string xsdURL = "https://zhengyue4499.github.io/Assignment4-XML-Hotels/Hotels.xsd";
 
         public static void Main(string[] args)
         {
-            // 1. valid XML
-            Console.WriteLine(Verification(xmlURL, xsdURL));
-            // 2. invalid XML
-            Console.WriteLine(Verification(xmlErrorURL, xsdURL));
-            // 3. XML → JSON
-            Console.WriteLine(Xml2Json(xmlURL));
+            string result = Verification(xmlURL, xsdURL);
+            Console.WriteLine(result);
+
+            result = Verification(xmlErrorURL, xsdURL);
+            Console.WriteLine(result);
+
+            result = Xml2Json(xmlURL);
+            Console.WriteLine(result);
         }
 
-        // Q2.1: validate xmlUrl against xsdUrl
+        // Q2.1
         public static string Verification(string xmlUrl, string xsdUrl)
         {
             var errors = new List<string>();
@@ -54,16 +62,24 @@ namespace ConsoleApp1
                 : string.Join(Environment.NewLine, errors);
         }
 
-        // Q2.2: convert a valid XML to JSON text
+        // Q2.2
         public static string Xml2Json(string xmlUrl)
         {
             var doc = new XmlDocument();
             doc.Load(xmlUrl);
 
-            // Disambiguated Formatting via alias JsonFmt:
+            // strip out schema hints so they don't pollute the JSON
+            var root = doc.DocumentElement;
+            if (root != null)
+            {
+                root.RemoveAttribute("xmlns:xsi");
+                root.RemoveAttribute("xsi:noNamespaceSchemaLocation");
+            }
+
+            // serialize entire document (including root <Hotels>) to JSON
             string jsonText = JsonConvert.SerializeXmlNode(
                 doc,
-                JsonFmt.Indented
+                Newtonsoft.Json.Formatting.Indented
             );
 
             return jsonText;
